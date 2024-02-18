@@ -11,6 +11,7 @@ if len(sys.argv) == 1:
     sys.exit(1)
 
 args = parser.parse_args()
+parser.add_argument("-m", "--motif", type = str, required = False, help = "Motif")
 
 if re.search('^[ACGTU]+$', args.seq):
     if re.search('T', args.seq):
@@ -22,3 +23,10 @@ if re.search('^[ACGTU]+$', args.seq):
 else:
     print ('The sequence is not DNA or RNA')
 
+if args.motif:
+    args.motif = args.motif.upper()
+    print(f'Motif search enabled: looking for motif "{args.motif}" in sequence "{args.seq}"... ', end = '')
+    if re.search(args.motif, args.seq):
+        print("FOUND")
+    else:
+        print("NOT FOUND")
