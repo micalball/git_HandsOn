@@ -20,5 +20,5 @@ if re.search('^[ACGTU]+$', args.seq):
     else:
         print ('The sequence can be DNA or RNA')
 else:
-    print ('The sequence is not DNA nor RNA')
+    print ('The sequence is not DNA or RNA')
 
