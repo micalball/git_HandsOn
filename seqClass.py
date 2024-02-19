@@ -16,7 +16,7 @@ args = parser.parse_args()
 
 args.seq = args.seq.upper() # Note we just added this line
 if re.search('^[ACGTU]+$', args.seq):
-    # Add a condition so if the sequence contains both T and U it doesn't compute it as DNA
+    # Condition in case the sequence contains both T and U it doesn't compute it as DNA
     if 'T' in args.seq and 'U' in args.seq:
         print('The sequence contains both T and U, and is ambiguous.')
     elif 'T' in args.seq:
